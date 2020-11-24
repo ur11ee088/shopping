@@ -21,6 +21,7 @@ import com.devsunilkumar.shopping.ui.categories.adapter.Adaptercategories
 import com.devsunilkumar.shopping.ui.filter.FilterDialogFragment
 import com.devsunilkumar.shopping.ui.sub_categories.adapter.AdapterSubcategoires
 import com.devsunilkumar.shopping.utils.isInternetAvailable
+import com.devsunilkumar.shopping.utils.noInternetPopup
 import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
 
@@ -36,7 +37,7 @@ class SubCategoriesFragment : BaseFragment(), RecyclerViewClickListener<Subcateg
         savedInstanceState: Bundle?
     ): View? {
         viewModel =
-            ViewModelProvider(this,factory).get(HomeViewModel::class.java)
+            ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_subcategories, container, false)
         binding.lifecycleOwner = this
@@ -48,22 +49,21 @@ class SubCategoriesFragment : BaseFragment(), RecyclerViewClickListener<Subcateg
         super.onActivityCreated(savedInstanceState)
         if (isInternetAvailable(requireContext())) {
             getsubcategoriesLists()
-          viewModel._msubcategoriesProducts.observe(viewLifecycleOwner, Observer {
-              bindUi(it.arrayOfProducts)
+            viewModel._msubcategoriesProducts.observe(viewLifecycleOwner, Observer {
+                bindUi(it.arrayOfProducts)
 
-          })
-
+            })
 
 
         } else {
-
+            noInternetPopup(requireContext())
         }
 
 
     }
 
     fun getsubcategoriesLists() = launch {
-        //  binding.progressbar.visibility = View.VISIBLE
+
         viewModel.getSubCategories()
     }
 
@@ -79,7 +79,7 @@ class SubCategoriesFragment : BaseFragment(), RecyclerViewClickListener<Subcateg
 
     override fun onRecyclerViewItemClick(view: View, item: SubcategoriesProducts) {
 
-        FilterDialogFragment().show(parentFragmentManager,"")
+        FilterDialogFragment().show(parentFragmentManager, "")
 
     }
 

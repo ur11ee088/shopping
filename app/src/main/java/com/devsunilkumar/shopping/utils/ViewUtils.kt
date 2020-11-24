@@ -9,7 +9,10 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.provider.Settings
 import android.view.View
+import android.widget.ProgressBar
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
+import com.devsunilkumar.shopping.R
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -59,6 +62,7 @@ fun noInternetPopup(ctx:Context){
     }
     dialog.create()
     dialog.show()
+
 
 }
 
