@@ -48,7 +48,8 @@ class HomeFragment : BaseFragment(), RecyclerViewClickListener<ProductCategories
             getcategoriesLists()
 
             viewModel._mCategoryResponse.observe(viewLifecycleOwner, Observer {
-                 binding.homeMainLayout.visibility = View.VISIBLE
+                binding.mprogress.visibility = View.GONE
+
                 if (it.arrayOfProducts != null)
 
                     bindUi(it.arrayOfProducts)
@@ -61,6 +62,7 @@ class HomeFragment : BaseFragment(), RecyclerViewClickListener<ProductCategories
     }
 
     fun getcategoriesLists() = launch {
+        binding.mprogress.visibility = View.VISIBLE
         viewModel.getCategoriesList()
     }
 

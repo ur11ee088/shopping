@@ -50,6 +50,7 @@ class SubCategoriesFragment : BaseFragment(), RecyclerViewClickListener<Subcateg
         if (isInternetAvailable(requireContext())) {
             getsubcategoriesLists()
             viewModel._msubcategoriesProducts.observe(viewLifecycleOwner, Observer {
+                binding.mprogress.visibility = View.GONE
                 bindUi(it.arrayOfProducts)
 
             })
@@ -63,7 +64,7 @@ class SubCategoriesFragment : BaseFragment(), RecyclerViewClickListener<Subcateg
     }
 
     fun getsubcategoriesLists() = launch {
-
+        binding.mprogress.visibility = View.VISIBLE
         viewModel.getSubCategories()
     }
 
