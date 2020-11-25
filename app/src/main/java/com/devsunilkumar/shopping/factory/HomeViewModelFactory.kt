@@ -3,7 +3,7 @@ package com.devsunilkumar.shopping.factory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.devsunilkumar.shopping.repository.HomeRepository
-import com.devsunilkumar.shopping.ui.categories.HomeViewModel
+import com.devsunilkumar.shopping.viewmodel.HomeViewModel
 
 
 @Suppress("UNCHECKED_CAST")

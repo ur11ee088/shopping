@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -20,6 +19,7 @@ import com.devsunilkumar.shopping.model.categories.ProductCategories
 import com.devsunilkumar.shopping.ui.categories.adapter.Adaptercategories
 import com.devsunilkumar.shopping.utils.isInternetAvailable
 import com.devsunilkumar.shopping.utils.noInternetPopup
+import com.devsunilkumar.shopping.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
 
