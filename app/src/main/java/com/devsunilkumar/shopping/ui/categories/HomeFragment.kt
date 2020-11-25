@@ -48,8 +48,9 @@ class HomeFragment : BaseFragment(), RecyclerViewClickListener<ProductCategories
             getcategoriesLists()
 
             viewModel._mCategoryResponse.observe(viewLifecycleOwner, Observer {
-
+                 binding.homeMainLayout.visibility = View.VISIBLE
                 if (it.arrayOfProducts != null)
+
                     bindUi(it.arrayOfProducts)
             })
 
